@@ -1,0 +1,39 @@
+﻿@using SSO.Application.Features.Client.Responses;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<ClientResponse>
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Clients";
+}
+<div class="jumbotron">
+    <div class="d-flex justify-content-between align-items-center">
+        <h4>Clients</h4>
+        <a asp-action="Create"><ion-icon name="add-circle-outline"></ion-icon></a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Client</th>
+                <th scope="col">Name</th>
+                <th scope="col">RedirectUris</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.ClientId</td>
+                    <td>@item.DisplayName</td>
+                    <td>@item.RedirectUris</td>
+                    <td>
+                        <div class="d-flex">
+                            <a asp-action="Edit" asp-route-id="@item.Id"><ion-icon name="information-circle-outline"></ion-icon></a>
+                            <a asp-action="Delete"><ion-icon name="close-circle-outline"></ion-icon></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>

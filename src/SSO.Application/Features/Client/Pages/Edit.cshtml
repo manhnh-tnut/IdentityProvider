@@ -1,0 +1,69 @@
+﻿@using SSO.Application.Features.Client.Responses;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model ClientInfoResponse
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Detail";
+}
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form asp-action="edit" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <input asp-for="@Model.Id" type="hidden" />
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.ClientId" class="form-control" aria-required="true" />
+                    <label asp-for="@Model.ClientId" class="form-label">ClientId</label>
+                    <span asp-validation-for="@Model.ClientId" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.DisplayName" class="form-control" aria-required="false" />
+                    <label asp-for="@Model.DisplayName" class="form-label">DisplayName</label>
+                    <span asp-validation-for="@Model.DisplayName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.DisplayNames" class="form-control" aria-required="false" />
+                    <label asp-for="@Model.DisplayNames" class="form-label">DisplayNames</label>
+                    <span asp-validation-for="@Model.DisplayNames" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.PostLogoutRedirectUris" class="form-control" aria-required="false" />
+                    <label asp-for="@Model.PostLogoutRedirectUris" class="form-label">PostLogoutRedirectUris</label>
+                    <span asp-validation-for="@Model.PostLogoutRedirectUris" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.Properties" class="form-control" aria-required="false" />
+                    <label asp-for="@Model.Properties" class="form-label">Properties</label>
+                    <span asp-validation-for="@Model.Properties" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.RedirectUris" class="form-control" aria-required="false" />
+                    <label asp-for="@Model.RedirectUris" class="form-label">RedirectUris</label>
+                    <span asp-validation-for="@Model.RedirectUris" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.Type" class="form-control" aria-required="false" />
+                    <label asp-for="@Model.Type" class="form-label">Type</label>
+                    <span asp-validation-for="@Model.Type" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.ClientSecret" class="form-control" readonly="readonly" />
+                    <label asp-for="@Model.ClientSecret" class="form-label">ClientSecret</label>
+                    <span asp-validation-for="@Model.ClientSecret" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.ConcurrencyToken" class="form-control" readonly="readonly" />
+                    <label asp-for="@Model.ConcurrencyToken" class="form-label">ConcurrencyToken</label>
+                    <span asp-validation-for="@Model.ConcurrencyToken" class="text-danger"></span>
+                </div>
+                <div>
+                    <button id="edit-submit" type="submit" class="w-100 btn btn-lg btn-outline-success">Save</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
